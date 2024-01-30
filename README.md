@@ -10,6 +10,7 @@
 - Inside the `src/config` folder create a file `config.json` and then
   add the following piece of json 
 
+```
   {
      "development": {
      "username": "<YOUR_USER_NAME>",
@@ -20,10 +21,13 @@
       }
   }
 
+```
 - Once you've added your db config as listed above,go to the `src` folder from your terminal
   and execute command `npx sequelize db:create`
-  and then,
+  and then execute,
+
     `npx sequelize db:migrate `
+```
 ## Db  Design
   - Airplane Table
   - Flight
@@ -34,3 +38,8 @@
   - A city has many airports but a airport belongs to one city
   - One airport can have many flights,but a flight belongs to one airport
 
+##Tables
+
+###City-> id,name,created_at,updated_at
+###Airport->id,name,address,city_id,crreated_at,updated_at
+    Relationship-->City has many Airports and Airpot belongs to a city(one to many)
