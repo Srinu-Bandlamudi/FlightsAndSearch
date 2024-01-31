@@ -25,21 +25,24 @@ const setupAndStartServer=async ()=>{
              db.sequelize.sync({alter:true});
         }
        
-        const city=await City.findOne({
-            where:{
-                id:5
-            }
-        });
-        const airports=await city.getAirports();
-        const newAirport=await Airport.findOne({
-            where:{
-                cityId:1
-            }
-            
-         });
-         await city.addAirport(newAirport);
-        console.log(city,airports);
+       
     });
 }
 
 setupAndStartServer();
+
+
+// const city=await City.findOne({
+//     where:{
+//         id:5
+//     }
+// });
+// const airports=await city.getAirports();
+// const newAirport=await Airport.findOne({
+//     where:{
+//         cityId:1
+//     }
+    
+//  });
+//  await city.addAirport(newAirport);
+// console.log(city,airports);

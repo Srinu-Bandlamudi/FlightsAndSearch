@@ -93,6 +93,7 @@ class CityRepository{
     }
 
    }
+
 }
 
 module.exports=CityRepository;
