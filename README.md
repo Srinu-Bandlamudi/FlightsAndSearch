@@ -1,50 +1,67 @@
 # Welcome to Flight Service
 
+## Project Setup
 
-# Project SetUp
-- Clone the project on your local
-- Execute `npm install` on the same path as of your roor directory of the
-  downloaded project
-- Create a `.env` file on the root directory and add the following environment variables
-        - `PORT=3000`
-- Inside the `src/config` folder create a file `config.json` and then
-  add the following piece of json 
+1. **Clone the project on your local machine**
+   - Clone this repository: `[FlightsAndSearchService](https://github.com/Srinu-Bandlamudi/FlightsAndSearch)`
+   - Clone the remaining services if needed:
+     - [EmailReminderService](https://github.com/Srinu-Bandlamudi/EmailReminderService)
+     - [Auth_Service](https://github.com/Srinu-Bandlamudi/Auth_Service)
+     - [TicketBookingService](https://github.com/Srinu-Bandlamudi/TicketBookingService)
+     - [API_Gateway](https://github.com/Srinu-Bandlamudi/API_Gateway)
 
-```
-  {
-     "development": {
-     "username": "<YOUR_USER_NAME>",
-     "password": "<YOUR_DB_PASSWORD>",
-     "database": "Flights_Serach_DB_DEV",
-     "host": "127.0.0.1",
-     "dialect": "mysql"
-      }
-  }
+2. **Install dependencies**
+   - Execute `npm install` in the root directory of each service after cloning them.
 
-```
-- Once you've added your db config as listed above,go to the `src` folder from your terminal
-  and execute command `npx sequelize db:create`
-  and then execute,
+3. **Environment Setup**
+   - Create a `.env` file in the root directory and add the following environment variable:
+     ```plaintext
+     PORT=3000
+     ```
+   - Inside the `src/config` folder, create a file `config.json` with the following content:
+     ```json
+     {
+       "development": {
+         "username": "<YOUR_USER_NAME>",
+         "password": "<YOUR_DB_PASSWORD>",
+         "database": "Flights_Serach_DB_DEV",
+         "host": "127.0.0.1",
+         "dialect": "mysql"
+       }
+     }
+     ```
 
-    `npx sequelize db:migrate `
-```
-## Db  Design
-  - Airplane Table
+4. **Database Setup**
+   - Once you've added your DB config as listed above, navigate to the `src` folder from your terminal and execute:
+     ```bash
+     npx sequelize db:create
+     ```
+   - Then, execute the migration command:
+     ```bash
+     npx sequelize db:migrate
+     ```
+
+## Database Design for FlightsAndSearch_Service
+
+- **Tables:**
+  - Airplane
   - Flight
   - Airport
   - City
 
-  - A Flight belongs to an Airplane but one airplane can be used in multiple flights
-  - A city has many airports but a airport belongs to one city
-  - One airport can have many flights,but a flight belongs to one airport
+- **Relationships:**
+  - A Flight belongs to an Airplane, but one airplane can be used in multiple flights.
+  - A city has many airports, but an airport belongs to one city.
+  - One airport can have many flights, but a flight belongs to one airport.
 
-##Tables
+### Table Schemas
 
-###City-> id,name,created_at,updated_at
-###Airport->id,name,address,city_id,crreated_at,updated_at
-    Relationship-->City has many Airports and Airpot belongs to a city(one to many)
+- **City:**
+  - `id`, `name`, `created_at`, `updated_at`
 
-    ```
-      npx sequelize model:generate --name Airport --attributes name:String,address:String,cityId:integer
+- **Airport:**
+  - `id`, `name`, `address`, `city_id`, `created_at`, `updated_at`
+  - Relationship: City has many Airports, and Airport belongs to a City (one-to-many).
 
-    ```
+  ```bash
+  npx sequelize model:generate --name Airport --attributes name:String,address:String,cityId:integer
