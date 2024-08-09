@@ -18,18 +18,18 @@ This project is part of a larger microservices architecture. Each service in the
 - [Database Design](#database-design-for-flightsandsearch_service)
 - [Service-Specific Configuration](#service-specific-configuration)
 - [Tech Stack](#tech-stack)
-- [Contributing](#contributing)
-- [License](#license)
 
-## Overview
+## Project Overview
 
-This project is a **Flight Service** built using a microservices architecture. It is designed to manage flight searches, bookings, user authentication, and email reminders for upcoming flights. The project uses RabbitMQ for handling downtime of services and Axios for inter-service communication. Key features include:
+This is a microservice architecture project designed for managing flight bookings. It includes the following key features:
 
-- **Centralized API Handling**: The API Gateway service acts as a single entry point for client requests, implementing rate limiting and routing to the appropriate service.
-- **Message Broker & Queue Management**: RabbitMQ ensures reliable message delivery between services, handling service downtime and ensuring eventual consistency.
-- **Flight Search with Filters**: Allows users to search flights based on various filters like departure city, arrival city, date, and more.
-- **Email Notifications**: Nodemailer is used for sending emails, with scheduled jobs (using Node-cron) to handle pending notifications.
-- **Logging & Monitoring**: Morgan logger is integrated for detailed logging of service interactions.
+- **Inter-Service Communication**: Utilizes Axios for seamless communication between microservices.
+- **Message Broker Integration**: Employs RabbitMQ for handling service downtime and managing message queues.
+- **Rate Limiting**: Implements rate limiting to prevent abuse and ensure fair usage.
+- **Logging**: Uses Morgan logger for HTTP request logging.
+- **Flight Search**: Allows searching for flights based on various filters.
+- **Email Notifications**: Sends emails using Nodemailer and manages pending emails with Node-cron.
+- **Centralized API Handling**: Features an API Gateway for centralized management and rate limiting of API requests.
 
 ## Project Setup
 
