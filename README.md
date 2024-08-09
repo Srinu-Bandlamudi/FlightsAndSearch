@@ -1,4 +1,35 @@
-# Welcome to Flight Service
+# Flight Service
+
+## Related Services
+
+This project is part of a larger microservices architecture. Each service in the ecosystem plays a crucial role in the overall functionality. Explore the related services:
+
+### 🔗 [FlightsAndSearchService](https://github.com/Srinu-Bandlamudi/FlightsAndSearch)
+### 🔗 [EmailReminderService](https://github.com/Srinu-Bandlamudi/EmailReminderService)
+### 🔗 [Auth_Service](https://github.com/Srinu-Bandlamudi/Auth_Service)
+### 🔗 [TicketBookingService](https://github.com/Srinu-Bandlamudi/TicketBookingService)
+### 🔗 [API_Gateway](https://github.com/Srinu-Bandlamudi/API_Gateway)
+
+---
+
+## Table of Contents
+- [Overview](#overview)
+- [Project Setup](#project-setup)
+- [Database Design](#database-design-for-flightsandsearch_service)
+- [Service-Specific Configuration](#service-specific-configuration)
+- [Tech Stack](#tech-stack)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Overview
+
+This project is a **Flight Service** built using a microservices architecture. It is designed to manage flight searches, bookings, user authentication, and email reminders for upcoming flights. The project uses RabbitMQ for handling downtime of services and Axios for inter-service communication. Key features include:
+
+- **Centralized API Handling**: The API Gateway service acts as a single entry point for client requests, implementing rate limiting and routing to the appropriate service.
+- **Message Broker & Queue Management**: RabbitMQ ensures reliable message delivery between services, handling service downtime and ensuring eventual consistency.
+- **Flight Search with Filters**: Allows users to search flights based on various filters like departure city, arrival city, date, and more.
+- **Email Notifications**: Nodemailer is used for sending emails, with scheduled jobs (using Node-cron) to handle pending notifications.
+- **Logging & Monitoring**: Morgan logger is integrated for detailed logging of service interactions.
 
 ## Project Setup
 
